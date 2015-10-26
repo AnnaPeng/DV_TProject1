@@ -3,7 +3,7 @@ require(dplyr)
 require(ggplot2)
 
 setwd("~/Desktop/DataVisualizationClass/DV_TProject1/01 Data")
-file_path <- "Alaska_OilWell.csv"
+file_path <- "Baltimore_Salary.csv"
 
 df <- read.csv(file_path, stringsAsFactors = FALSE)
 
@@ -12,7 +12,7 @@ names(df) <- gsub("\\.+", "_", names(df))
 
 str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
 
-measures <- c("latitude", "longitude")
+measures <- c("annualsalary", "grosspay")
 #measures <- NA # Do this if there are no measures.
 
 # Get rid of special characters in each column.
