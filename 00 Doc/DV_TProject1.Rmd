@@ -1,0 +1,86 @@
+---
+title: "DV_TProject1"
+author: "Panyu Peng - pp9774 & Bryan Ho - bth679"
+date: "October 26, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+#First of all, We are going to source these packages below
+```{r}
+require("jsonlite")
+require("RCurl")
+require("dplyr")
+require("ggplot2")
+require("knitr")
+require("dplyr")
+require("extrafont")
+```
+  
+  
+#Next, we modified the R_ETL.R file and use it to create two table on SQL server. The modified versions are as follows:
+##The tabels we get are as follows:  
+###Alaska OilWell's R_ETL.R file:  
+![](Oil.png)  
+CREATE TABLE Alaska_OilWell (  
+-- Change table_name to the table name you want.  
+ api_number varchar2(4000),  
+ operator_name varchar2(4000),  
+ well_name varchar2(4000),  
+ status varchar2(4000),  
+ parent varchar2(4000),  
+ cik varchar2(4000),  
+ serialid varchar2(4000),  
+ latitude number(38,4),  
+ longitude number(38,4)  
+ );
+   
+###Baltimore Salaries's R_ETL2.R file:  
+![](Baltimore.png)  
+CREATE TABLE Baltimore_Salary (  
+-- Change table_name to the table name you want.  
+ name varchar2(4000),  
+ jobtitle varchar2(4000),  
+ agencyid varchar2(4000),  
+ agency varchar2(4000),  
+ hiredate varchar2(4000),  
+ serialid varchar2(4000),  
+ annualsalary number(38,4),  
+ grosspay number(38,4)  
+ );  
+ 
+#After loading these datasets into Oracle, now we are getting the summary and subset of each data.
+  
+##First summary and subset is about the Alaska OilWell
+```{r}
+require("jsonlite")
+require("RCurl")
+# Change the USER and PASS below to be your UTEid
+df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from alaska_oilwell"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+
+summary(df)
+head(df)
+```
+  
+##Second summary and subset is about the Baltimore Salary
+```{r}
+require("jsonlite")
+require("RCurl")
+# Change the USER and PASS below to be your UTEid
+df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from baltimore_salary"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+
+summary(df)
+head(df)
+```
+
+#Now, We are going to use Tableau to make 3 different plots. They are scatterplot, crosstab, and bar chart. Then we will do the same thing using R-Studio
+  
+##First Plot: This is a scatterplot, and we are going to use Alaska Oil Well dataset to plot it.
+![](Alaska_OilWell_Scatterplot.png) 
+  
+##Second Plot: This is a crosstab, and we are going to use Baltimore Annual Salaries dataset to plot it.
+![](Baltimore_Salaries_Crosstab.png) 
+  
+##Third Plot: This is a bar chart, and we are going to use Alaska Oil Well dataset to plot it.
+![](Alaska_OilWell_BarChart.png)
