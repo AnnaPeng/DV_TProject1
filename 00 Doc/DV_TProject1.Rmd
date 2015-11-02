@@ -50,42 +50,28 @@ CREATE TABLE Baltimore_Salary (
  grosspay number(38,4)  
  );  
  
-#After loading these datasets into Oracle, now we are getting the summary and subset of each data.
-  
-##First summary and subset is about the Alaska OilWell
-```{r}
-require("jsonlite")
-require("RCurl")
-# Change the USER and PASS below to be your UTEid
-df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from alaska_oilwell"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='C##cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
-
-summary(df)
-head(df)
-```
-  
-##Second summary and subset is about the Baltimore Salary
-```{r}
-require("jsonlite")
-require("RCurl")
-# Change the USER and PASS below to be your UTEid
-df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from baltimore_salary"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
-
-summary(df)
-head(df)
-```
-
-#Now, We are going to use Tableau to make 3 different plots. They are scatterplot, crosstab, and bar chart. Then we will do the same thing using R-Studio
+#After loading these datasets into Oracle, now we are going to use Tableau to make 4 different plots. They are scatterplot, crosstab, and bar chart. Then we will do the same thing using R-Studio
   
 ##First Plot: This is a scatterplot, and we are using Alaska Oil Well dataset to plot it.
 ![](Alaska_OilWell_Scatterplot.png) 
+  
 ##Analysis:
+  
 ###This is actually not only a Scatterplot between "Longitude" and "Latitude"; this is more of a plot/ map demonstrating the geographic locations/ distributions of different oil companies' oil wells.
-
+  
+  
 ##Second Plot: This is also a scatterplot using Baltimore Salaries
 ![](Baltimore_Salary_Scatterplot.png)
+  
+##Analysis:
+  
   
 ##Third Plot: This is a crosstab, and we are using Baltimore Salaries dataset to plot it.
 ![](Baltimore_Salaries_Crosstab.png) 
   
+##Analysis:  
+  
 ##Fourth Plot: This is a bar chart, and we are using Alaska Oil Well dataset to plot it.
 ![](Alaska_OilWell_BarChart.png)
+  
+##Analysis:
