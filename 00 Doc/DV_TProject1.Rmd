@@ -72,7 +72,7 @@ This is actually not only a Scatterplot between "Longitude" and "Latitude"; this
 
 
 ##Fourth Plot: We filter the job title and only look at SUPERVISOR roles.
-![](Baltimore_Salary_FilterwithSupervisor.png)
+![](Baltimore_Salaries_FilterwithSupervisor.png)
 
 ##Analysis: If we adopt the same KPI parameters and we only look at SUPERVISOR roles, we find that the majority of such roles make salaries in the high range. 
   
