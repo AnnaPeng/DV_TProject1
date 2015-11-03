@@ -62,24 +62,27 @@ This is actually not only a Scatterplot between "Longitude" and "Latitude"; this
 ##Second Plot: This is also a scatterplot but we are using Baltimore Salaries data set.
 ![](Baltimore_Salary_Scatterplot.png)
   
-##Analysis: From this scatterplot, we can tell that except Police Department, Fire Department, Waste Water, Law Department are clustering and do not have a clear relationship between Annual Salary and Gross Salary, other roles in the following agencies, Circuit Court, City Council, Community Relations, Company Audits, Company Controllers/ Communications, DFW-Administration etc. all share a high positive correlation coefficient and can be accurately modeled with a linear model.
+##Analysis: 
+From this scatterplot, we can tell that except Police Department, Fire Department, Waste Water, Law Department are clustering and do not have a clear relationship between Annual Salary and Gross Salary, other roles in the following agencies, Circuit Court, City Council, Community Relations, Company Audits, Company Controllers/ Communications, DFW-Administration etc. all share a high positive correlation coefficient and can be accurately modeled with a linear model.
 
 
 ##Third Plot: This is a crosstab, and we are using Baltimore Salaries dataset to plot it.
 ![](Baltimore_Salaries_Crosstab.png) 
   
-##Analysis: We find that if $40,000 and $67,510 are the parameters that determine "Low", "Medium", "High", then very few poeple's salaries fall in the range over $67,510, and the majority of salaries of Baltimore employees are categorized as "Low" and "Medium".
+##Analysis: 
+We find that if $40,000 and $67,510 are the parameters that determine "Low", "Medium", "High", then very few poeple's salaries fall in the range over $67,510, and the majority of salaries of Baltimore employees are categorized as "Low" and "Medium".
 
 
 ##Fourth Plot: We filter the job title and only look at SUPERVISOR roles.
 ![](Baltimore_Salaries_FilterwithSupervisor.png)
 
-##Analysis: If we adopt the same KPI parameters and we only look at SUPERVISOR roles, we find that the majority of such roles make salaries in the high range. 
+##Analysis: 
+If we adopt the same KPI parameters and we only look at SUPERVISOR roles, we find that the majority of such roles make salaries in the high range. 
   
 
 ##Fifth Plot: This is a bar chart, and we are using Alaska Oil Well dataset to plot it.
 ![](Alaska_OilWell_BarChart.png)
   
 ##Analysis: 
-  
+From this bar chart, we see that the average number of companies that are in each corporation is about 550. BP PLC is one of the corporations that has the most number of companies, which is about 4300. However, the rest of these corporations are below the reference line. 
   
