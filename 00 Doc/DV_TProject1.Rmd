@@ -49,6 +49,21 @@ CREATE TABLE Baltimore_Salary (
  annualsalary number(38,4),  
  grosspay number(38,4)  
  );  
+   
+###Baltimore Salaries's R_ETL3.R file:
+![](Texas_salaries.png)
+CREATE TABLE Texas_Salaries (  
+-- Change table_name to the table name you want.  
+name varchar2(4000),  
+jobtitle varchar2(4000),  
+agencyid varchar2(4000),  
+agency varchar2(4000),  
+hiredate varchar2(4000),  
+annualsalary varchar2(4000),  
+grosspay varchar2(4000),  
+annual_salary number(38,4),  
+serialid number(38,4)  
+);  
  
 #After loading these datasets into Oracle, now we are going to use Tableau to make 4 different plots. They are scatterplot, crosstab, and bar chart. Then we will do the same thing using R-Studio
   
