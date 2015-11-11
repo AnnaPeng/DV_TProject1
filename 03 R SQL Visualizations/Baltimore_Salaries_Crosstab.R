@@ -2,7 +2,7 @@
 KPI_Low_Max_value = 40000     
 KPI_Medium_Max_value = 80000
 
-BALTIMORE_SALARY <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select Agency, Jobtitle, Annualsalary from BALTIMORE_SALARY"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+BALTIMORE_SALARY <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query="select * from BALTIMORE_SALARY"')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='C##cs329e_pp9774', PASS='orcl_pp9774', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))
 
 df <- BALTIMORE_SALARY %>% group_by(AGENCY, JOBTITLE) %>% mutate(average = mean(ANNUALSALARY)) %>% mutate(KPI = ifelse(average <= KPI_Low_Max_value, '03 Low', ifelse(average <= KPI_Medium_Max_value, '02 Medium', '01 High')))
 
