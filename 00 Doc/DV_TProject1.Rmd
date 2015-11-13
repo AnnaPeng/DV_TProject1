@@ -106,6 +106,13 @@ From this bar chart, we see that the average number of companies that are in eac
 ```{r}
 source("../03 R SQL Visualizations/Blending_Texas&Baltimore_Hiredate.R", echo = TRUE)
 ```
+##Analysis:
+Here I blend the data using the shared SERIALID. There will be two people's salarty information, one from Baltimore and another from Texas, on each row of one SERIALID number. And I called head of the dateframe for a snapshot of the blended dataset.
+
+##Blending data using Tableau
+![](BlendingUsingTab.png)
+##Analysis:  
+Here I blend the BaltimoreSalary and TexasSalary through the Hire Date dimension. And compare the salaries of these two states year by year. Apparently, each year the sum of Baltimore Salary is higher than the sum of Texas Salary with no exception. The difference is highest in 2006 and lowest in 1991 and 1998. Also the trend for the salaries of both states is that the sums are steadily increasing with fluctuations between 1981 and 2001. 
 
 
 
