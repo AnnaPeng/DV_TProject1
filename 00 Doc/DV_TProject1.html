@@ -163,6 +163,62 @@ require(&quot;extrafont&quot;)</code></pre>
 <h2>Analysis:</h2>
 <p>From this bar chart, we see that the average number of companies that are in each corporation is about 550. BP PLC is one of the corporations that has the most number of companies, which is about 4300. However, the rest of these corporations are below the reference line.</p>
 </div>
+<div id="blending-data-using-sql-and-r" class="section level2">
+<h2>Blending data using SQL and R</h2>
+<pre class="r"><code>source(&quot;../03 R SQL Visualizations/Blending_Texas&amp;Baltimore_Hiredate.R&quot;, echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; require(&quot;jsonlite&quot;)
+## 
+## &gt; require(&quot;RCurl&quot;)
+## 
+## &gt; require(&quot;dplyr&quot;)
+## 
+## &gt; BALTIMORE_SALARY &lt;- data.frame(fromJSON(getURL(URLencode(&quot;skipper.cs.utexas.edu:5001/rest/native/?query=\&quot;select * from BALTIMORE_SALARY\&quot;&quot;), 
+## +     .... [TRUNCATED] 
+## 
+## &gt; TEXAS_SALARY &lt;- data.frame(fromJSON(getURL(URLencode(&quot;skipper.cs.utexas.edu:5001/rest/native/?query=\&quot;select * from TEXAS_SALARIES\&quot;&quot;), 
+## +     httph .... [TRUNCATED] 
+## 
+## &gt; df &lt;- data.frame(dplyr::left_join(BALTIMORE_SALARY, 
+## +     TEXAS_SALARY, by = &quot;SERIALID&quot;))
+## 
+## &gt; head(df)
+##               NAME.x                    JOBTITLE.x AGENCYID.x
+## 1   Aaron,Patricia G Facilities/Office Services II     A03031
+## 2      Aaron,Petra L     ASSISTANT STATES ATTORNEY     A29005
+## 3 Abaineh,Yohannes T                EPIDEMIOLOGIST     A65026
+## 4 Abdal-Rahim,Naim A               EMT Firefighter     A64063
+## 5     Abdi,Ezekiel W                POLICE OFFICER     A99398
+## 6   Abdul Hamid,Umar     LIQUOR BOARD INSPECTOR II     A09001
+##                  AGENCY.x HIREDATE.x SERIALID ANNUALSALARY.x GROSSPAY.x
+## 1      OED-Employment Dev   10/24/79        1          50845   45505.94
+## 2 States Attorneys Office    9/25/06        2          56595   51588.89
+## 3  HLTH-Health Department    7/23/09        3          56500   50633.26
+## 4   Fire Academy Recruits    3/30/11        4          33476    3888.95
+## 5       Police Department    6/14/07        5          50919   51421.73
+## 6    Liquor License Board    1/17/95        6          43278   39116.93
+##               NAME.y                    JOBTITLE.y AGENCYID.y
+## 1   Aaron,Patricia G Facilities/Office Services II     A03031
+## 2      Aaron,Petra L     ASSISTANT STATES ATTORNEY     A29005
+## 3 Abaineh,Yohannes T                EPIDEMIOLOGIST     A65026
+## 4 Abdal-Rahim,Naim A               EMT Firefighter     A64063
+## 5     Abdi,Ezekiel W                POLICE OFFICER     A99398
+## 6   Abdul Hamid,Umar     LIQUOR BOARD INSPECTOR II     A09001
+##                  AGENCY.y HIREDATE.y ANNUALSALARY.y GROSSPAY.y
+## 1      OED-Employment Dev   10/24/79          50845   45505.94
+## 2 States Attorneys Office    9/25/06          56595   51588.89
+## 3  HLTH-Health Department    7/23/09          56500   50633.26
+## 4   Fire Academy Recruits    3/30/11          33476    3888.95
+## 5       Police Department    6/14/07          50919   51421.73
+## 6    Liquor License Board    1/17/95          43278   39116.93
+##   ANNUAL_SALARY
+## 1          null
+## 2          null
+## 3          null
+## 4          null
+## 5          null
+## 6          null</code></pre>
+</div>
 </div>
 
 

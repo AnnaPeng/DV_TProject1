@@ -99,5 +99,15 @@ If we adopt the same KPI parameters and we only look at SUPERVISOR roles, we fin
 ![](Alaska_OilWell_BarChart.png)
   
 ##Analysis: 
-From this bar chart, we see that the average number of companies that are in each corporation is about 550. BP PLC is one of the corporations that has the most number of companies, which is about 4300. However, the rest of these corporations are below the reference line. 
+From this bar chart, we see that the average number of companies that are in each corporation is about 550. BP PLC is one of the corporations that has the most number of companies, which is about 4300. However, the rest of these corporations are below the reference line.  
+
+
+##Blending data using SQL and R
+```{r}
+source("../03 R SQL Visualizations/Blending_Texas&Baltimore_Hiredate.R", echo = TRUE)
+```
+
+
+
+
   
