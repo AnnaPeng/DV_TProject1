@@ -12,11 +12,12 @@ ggplot() +
   scale_y_discrete() +
   labs(title='Baltimore Salaries Crosstab\n') +
   labs(x=paste("AGENCY"), y=paste("JOBTITLE")) +
+  
   layer(data=df, 
         mapping=aes(x=AGENCY, y=JOBTITLE, label=average), 
         stat="identity", 
         stat_params=list(), 
-        geom="text",
+        geom="text",size = 3,
         geom_params=list(colour="black"), 
         position=position_identity()
   ) +
@@ -27,4 +28,4 @@ ggplot() +
         geom="tile",
         geom_params=list(alpha=0.50), 
         position=position_identity()
-  )
+  ) + theme(axis.ticks = element_blank(),axis.text.x = element_blank(), axis.text.y = element_blank())

@@ -100,8 +100,30 @@ If we adopt the same KPI parameters and we only look at SUPERVISOR roles, we fin
   
 ##Analysis: 
 From this bar chart, we see that the average number of companies that are in each corporation is about 550. BP PLC is one of the corporations that has the most number of companies, which is about 4300. However, the rest of these corporations are below the reference line.  
-
-
+  
+###Plotting Scatterplot, KPI Crosstab, and Bar Chart in R
+  
+##First Plot: This is a scatterplot, and we are using Alaska Oil Well dataset to plot it  
+```{r}
+source("../03 R SQL Visualizations/Alaska_OilWell_Scatterplot.R", echo = TRUE)
+```
+  
+##Analysis:
+  
+##Second Plot: This is a crosstab, and we are using Baltimore Salaries dataset to plot it.  
+```{r}
+source("../03 R SQL Visualizations/Baltimore_Salaries_Crosstab.R", echo = TRUE)
+```
+  
+##Analysis:
+  
+##Third Plot: This is a bar chart, and we are using Alaska Oil Well dataset to plot it.  
+```{r}
+source("../03 R SQL Visualizations/Baltimore_Salaries_Crosstab.R", echo = TRUE)
+```
+  
+##Analysis:
+  
 ##Blending data using SQL and R
 ```{r}
 source("../03 R SQL Visualizations/Blending_Texas&Baltimore_Hiredate.R", echo = TRUE)
